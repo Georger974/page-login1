@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page de login</title>
+    <link rel="stylesheet"
+        href="https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-straight/css/uicons-regular-straight.css" />
+    <!-- <link rel="stylesheet"
+    href="https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css" /> -->
+    <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+    <section>
+        <div class="container1">
+            <form id="form1">
+                <h1>Login</h1>
+                <div class="mail box">
+                    <input type="email" name="mail" id="mail-login" placeholder="Ici votre mail" />
+                    <span class="ico-user">
+                        <!-- <i class="fi fi-rr-user"></i> -->
+                        <i class="fi fi-rs-envelope" id="ico_mail1"></i>
+                    </span>
+                </div>
+
+
+
+                <div class="password box">
+                    <input type="password" name="password1" id="password1" size="7" placeholder="password" />
+                    <span class="ico-pass">
+                        <i class="fi fi-rs-lock" id="ico-pass1"></i>
+                    </span>
+                </div>
+
+                <div class="aide ">
+                    <div class="remenber">
+                        <label for="check1"><input id="check1" type="checkbox" />remenber me</label>
+                    </div>
+                    <a id="Mp" href="#">forgot password ?</a>
+                </div>
+
+                <input class="login-un" id="log1" type="submit" value="Login" />
+                <div class="lien">
+                    <p>
+                        Don't have an account ?
+                        <a id="sign_up" href="#">Register </a>
+                    </p>
+                </div>
+                <p style="color: red" font-size="20px" id="erreur1"></p>
+            </form>
+
+
+        </div>
+    </section>
+
+    <!--    ************ page sign up  *************** -->
+
+    <section>
+        <div class="container2">
+            <form id="form2">
+                <h1>Sign up</h1>
+                <div class="mail-un boite">
+                    <input type="email" name="page2Mail1" id="page2Mail1" placeholder="Ici votre mail ...." />
+                    <span class="ico-user">
+
+                        <i class="fi fi-rs-envelope" id="ico_mail1_page2"></i>
+                    </span>
+                </div>
+                <div class="mail-deux boite">
+                    <input type="email" name="mail2-sign-up" id="Mail2_page2"
+                        placeholder=" votre mail de confirmation" />
+                    <span class="ico-user">
+
+                        <i class="fi fi-rs-envelope" id="ico_mail2_page2"></i>
+                    </span>
+                </div>
+
+
+                <div class="password boite">
+                    <input type="password" name="password" id="password2" size="10" placeholder="password" />
+                    <span class="ico-pass">
+                        <i id="ico_pass_page2" class="fi fi-rs-lock"></i>
+                    </span>
+                </div>
+
+                <div class="aide">
+                    <div class="remenber">
+                        <label for="check2"><input id="check2" type="checkbox" />remenber me</label>
+                        <input class="login-deux" id="log2" type="submit" value="Login" />
+
+                    </div>
+
+                    <p style="color: red" font-size="20px" id="erreur2"></p>
+            </form>
+
+        </div>
+
+        <!-- ************** popup  ***************** -->
+    </section>
+    <div class="popup">
+        <p><img src="./image/check-mark.svg" />connection réussie</p>
+    </div>
+
+    <script>
+        let ico_mail1 = document.getElementById('ico_mail1')
+        let ico_mail1_page2 = document.getElementById('ico_mail1_page2')
+        let ico_mail2_page2 = document.getElementById('ico_mail2_page2')
+        let ico_pass1 = document.getElementById('ico-pass1')
+        let ico_pass2 = document.getElementById("ico_pass_page2");
+        let disp_login1 = document.getElementById('log1');
+        let disp_login2 = document.getElementById('log2');
+        let register = document.getElementById("sign_up");
+
+        let cont1 = document.querySelector(".container1");
+        let cont2 = document.querySelector(".container2");
+        let form1 = document.querySelector(".container1 form");
+        let form2 = document.querySelector(".container2 form");
+        let popup = document.querySelector(".popup");
+
+        let regex_mail = new RegExp("^[a-z0-9._-]+@[a-z]+\\.[a-z]+");
+        let regex_pass = new RegExp("^[A-Za-z]{4}[1-9]{1}");
+
+        let mail_page1 = document.getElementById("mail-login");
+        let passsword1 = document.getElementById(" password1");
+        let err1 = document.getElementById("erreur1");
+        let mail_box = document.querySelector(" .mail.box");
+        let pass_box = document.querySelector(" .password.box");
+
+        let mail1_page2 = document.getElementById("page2Mail1");
+        let mail2_page2 = document.getElementById("Mail2_page2");
+        let password2 = document.getElementById("password2");
+        let err2 = document.getElementById("erreur2");
+
+
+        let mail_un_box = document.querySelector(".mail-un.boite");
+        let mail_deux_box = document.querySelector(".mail-deux.boite");
+        let pass_deux_box = document.querySelector(".password.boite");
+
+        let erreur1 = true;
+        let erreur2 = true;
+        let erreur3 = true;
+
+        function valid_formulaire1() {
+            form1.addEventListener("submit", (e) => {
+                if (erreur1 || erreur3 === true) {
+                    e.preventDefault();
+                    alert("erreur");
+                } else {
+                    e.preventDefault();
+                    cont1.style.display = "none";
+                    form1.style.display = "none";
+
+                    let n = 1;
+                    let time = setInterval(() => {
+                        popup.style.visibility = "visible";
+                        if (n >= 2) {
+                            clearInterval(time);
+                            popup.style.visibility = "hidden";
+                        } else {
+                            n++;
+                        }
+                    }
+                        , 2000);
+
+                }
+            })
+        }
+
+        function valid_formulaire2() {
+            form2.addEventListener("submit", (e) => {
+                if (erreur1 || erreur2 || erreur3 === true) {
+                    e.preventDefault();
+                    alert("erreur");
+                } else {
+                    e.preventDefault();
+                    cont1.style.display = "none";
+                    cont2.style.display = "none";
+                    form2.style.display = "none";
+
+                    let n = 1;
+                    let time = setInterval(function () {
+                        popup.style.visibility = "visible";
+                        if (n >= 2) {
+                            clearInterval(time);
+                            popup.style.visibility = "hidden";
+                        } else {
+                            n++;
+                        }
+                    }
+                        , 2000);
+                }
+            });
+        }
+
+        function valid_mail1(mail_entrer, err_nb, icon) {
+            mail_entrer.addEventListener("input", () => {
+                let resultat = regex_mail.test(mail_entrer.value);
+                if (!resultat) {
+                    err_nb.innerText = "veuillez entrer un champ correct";
+                    icon.style.color = "white";
+                } else {
+                    erreur1 = false;
+                    icon.style.color = "green";
+                    err_nb.innerText = "";
+                }
+            });
+        }
+
+
+        function valid_mail2(mail_entrer, mail_entrer2, err_nb, ico) {
+            mail_entrer2.addEventListener("input", (e) => {
+                if (mail_entrer.value !== mail_entrer2.value) {
+                    err_nb.innerText = "les deux adresses ne corespondent pas";
+                    ico.style.color = "white";
+                } else {
+                    erreur2 = false;
+                    ico.style.color = "green";
+                    err_nb.innerText = "";
+
+                }
+            });
+        }
+
+        function mot_pass(mot_pass_entrer, pass, bouton_login, err_nb) {
+            mot_pass_entrer.addEventListener("input", () => {
+                let res = regex_pass.test(mot_pass_entrer.value);
+                if (!res) {
+                    console.log(res)
+                    pass.style.color = " white";
+                    bouton_login.classList.remove('active');
+                    err_nb.innerText = "veuillez entrer un champ correct";
+
+                } else {
+                    erreur3 = false;
+                    console.log(res)
+                    pass.style.color = " green"
+                    bouton_login.classList.add('active');
+                    err_nb.innerText = ""
+                }
+            });
+
+
+        }
+
+        valid_formulaire1();
+
+        /*  ***************page sign up**********************/
+        register.addEventListener("click", function () {
+            (cont1 && form1).style.visibility = "hidden"; //efface la 1ere page
+            (cont2 && form2).style.visibility = "visible"; //affiche la 2ème page
+            valid_formulaire2();
+            valid_mail1(mail1_page2, err2, ico_mail1_page2);
+            valid_mail2(mail1_page2, mail2_page2, err2, ico_mail2_page2);
+            mot_pass(password2, ico_pass2, disp_login2, err2);
+            //popup();
+        });
+        /*  ************              ******************** */
+
+        valid_mail1(mail_page1, err1, ico_mail1);
+        mot_pass(password1, ico_pass1, disp_login1, err1);
+
+    </script>
+
+</body>
+
+</html>

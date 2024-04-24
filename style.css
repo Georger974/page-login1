@@ -1,0 +1,209 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  display: flex;
+  place-content: center;
+  background-image: url("./image/newbeach4.webp");
+  background-size: cover;
+}
+.container1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  visibility: visible;
+  border: 1px solid #ffffff82;
+  border-radius: 20px;
+  max-width: 560px;
+  width: 75%;
+  height: 560px;
+  filter: opacity(0.8);
+  margin: auto 0px;
+  backdrop-filter: blur(6px);
+}
+h1 {
+  text-align: center;
+  font-size: 60px;
+}
+.container1 form {
+  width: 98%;
+  height: 98%;
+  padding: 60px 80px;
+  visibility: visible;
+}
+
+.mail input,
+.password input {
+  font-size: 30px;
+  width: 80%;
+  height: 40px;
+  background: transparent;
+  outline: none;
+  border: none;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: rgb(7, 47, 47);
+}
+.box {
+  margin: 40px auto 40px auto;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: solid 1px rgb(231, 246, 246);
+  border-radius: 20px;
+}
+.ico-user,
+.ico-pass,
+.ico-pass {
+  font-size: 30px;
+  font-weight: 600;
+  color: white;
+}
+.aide {
+  display: flex;
+  justify-content: space-around;
+}
+label {
+  color: black;
+  font-size: 20px;
+}
+#check1,
+#check2 {
+  accent-color: #0ef;
+}
+a {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+a:hover {
+  text-decoration: underline;
+  color: #0ef;
+}
+.login-un,
+.login-deux {
+  display: block;
+  width: 100%;
+  height: 60px;
+  margin: 20px auto 20px auto;
+  border-radius: 20px;
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+  background-color: rgb(255, 255, 255, 0.4);
+  border: solid 1px white;
+  background-color: rgb(24, 20, 16);
+  border: none;
+  color: rgb(210, 128, 70);
+  /* cursor: pointer; */
+}
+.active {
+  color: green;
+  cursor: pointer;
+  border: solid 2px white;
+}
+#erreur1 {
+  color: red;
+}
+
+.lien {
+  text-align: center;
+  font-weight: 500;
+  color: rgb(226, 229, 229);
+  font-size: 20px;
+}
+.lien a {
+  margin-left: 20px;
+}
+/*   ******register ***********/
+.container2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+  border: 1px solid #ffffff82;
+  border-radius: 20px;
+  max-width: 560px;
+  width: 75%;
+  height: 600px;
+  filter: opacity(0.8);
+  margin: auto 0px;
+  backdrop-filter: blur(6px);
+}
+
+.container2 form {
+  width: 100%;
+  height: 100%;
+  padding: 60px 80px;
+  visibility: hidden;
+}
+.container2 form input::placeholder {
+  color: rgb(49, 69, 54);
+  font-size: 20px;
+  text-shadow: 1px 1px 2px rgb(130, 105, 2);
+}
+
+.container2 h1 {
+  text-align: center;
+  font-size: 60px;
+}
+.boite {
+  margin: 40px auto 40px auto;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: solid 1px #ffffff82;
+  border-radius: 20px;
+}
+
+.mail-un input,
+.mail-deux input,
+.password .boite input {
+  font-size: 25px;
+  width: 80%;
+  height: 40px;
+  background: transparent;
+  outline: none;
+  border: none;
+  letter-spacing: 1px;
+  font-weight: 400;
+  color: rgb(0, 6, 6);
+}
+/* **********popup********* */
+.popup {
+  visibility: hidden;
+  transition: 0.8s ease-in;
+  position: absolute;
+  top: 30%;
+  left: 40%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  background-color: #e4e8ed;
+  color: #252f3c;
+  border: 1px solid #ffffff82;
+  max-width: 560px;
+  width: 65%;
+  height: 120px;
+  font-size: 50px;
+  /* margin: auto 0px; */
+}
+
+.popup img {
+  width: 70px;
+  height: 70px;
+}
+/*  **************** valid input *********************** */
+.active {
+  color: green;
+}
