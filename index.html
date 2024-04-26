@@ -7,8 +7,7 @@
     <title>Page de login</title>
     <link rel="stylesheet"
         href="https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-straight/css/uicons-regular-straight.css" />
-    <!-- <link rel="stylesheet"
-    href="https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css" /> -->
+
     <link rel="stylesheet" href="./style.css" />
 </head>
 
@@ -20,7 +19,7 @@
                 <div class="mail box">
                     <input type="email" name="mail" id="mail-login" placeholder="Ici votre mail" />
                     <span class="ico-user">
-                        <!-- <i class="fi fi-rr-user"></i> -->
+
                         <i class="fi fi-rs-envelope" id="ico_mail1"></i>
                     </span>
                 </div>
@@ -36,10 +35,14 @@
 
                 <div class="aide ">
                     <div class="remenber">
-                        <label for="check1"><input id="check1" type="checkbox" />remenber me</label>
+                        <input type="checkbox" id="check1">
+                        <label for="check1">remenber me</label>
                     </div>
                     <a id="Mp" href="#">forgot password ?</a>
+
                 </div>
+
+
 
                 <input class="login-un" id="log1" type="submit" value="Login" />
                 <div class="lien">
@@ -87,12 +90,14 @@
 
                 <div class="aide">
                     <div class="remenber">
-                        <label for="check2"><input id="check2" type="checkbox" />remenber me</label>
-                        <input class="login-deux" id="log2" type="submit" value="Login" />
-
+                        <input type="checkbox" id="check2">
+                        <label for="check2">remenber me</label>
                     </div>
+                </div>
 
-                    <p style="color: red" font-size="20px" id="erreur2"></p>
+                <input class="login-deux" id="log2" type="submit" value="Login" />
+
+                <p style="color: red" font-size="20px" id="erreur2"></p>
             </form>
 
         </div>
@@ -230,7 +235,7 @@
                     console.log(res)
                     pass.style.color = " white";
                     bouton_login.classList.remove('active');
-                    err_nb.innerText = "veuillez entrer un champ correct";
+                    err_nb.innerText = "le mot de pass doit contenir 4 lettres et 1 chiffre";
 
                 } else {
                     erreur3 = false;
